@@ -1,0 +1,26 @@
+{
+    "description": "Redhat UXD Integration Components",
+    "repository": "https://github.com/rh-uxd/integration.git",
+    "license": "MIT",
+    "private": true,
+    "workspaces": {
+      "packages": [
+        "packages/*"
+      ],
+      "nohoist": [
+        "**/@patternfly/react-core",
+        "**/@patternfly/react-core/**",
+        "**/patternfly"
+      ]
+    },
+    "scripts": {
+      "clean": "lerna run clean",
+      "build": "lerna run build",
+      "start:studio": "lerna run start --scope=@rh-uxd/integration"
+    },
+    "devDependencies": {
+      "lerna": "3.20.2"
+    },
+    "name": "apicurio-studio-react-poc"
+  }
+  
