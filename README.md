@@ -1,6 +1,6 @@
-# UXD Integration Frontend Development / Design Repo #
+# UXD Integration Component Library #
 
-Welcome to Redhat's com
+Welcome to Redhat's componet library for the integration products.  This library contains a set of common components that are used across the integration product line.
 
 
 ## Requirements
