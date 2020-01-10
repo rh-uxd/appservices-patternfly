@@ -15,12 +15,11 @@
     },
     "scripts": {
       "clean": "lerna run clean",
-      "build": "lerna run build",
-      "start:studio": "lerna run start --scope=@rh-uxd/integration"
+      "build": "lerna run build"
     },
     "devDependencies": {
       "lerna": "3.20.2"
     },
-    "name": "apicurio-studio-react-poc"
+    "name": "rh-uxd-integration"
   }
   
