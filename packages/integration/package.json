@@ -17,7 +17,8 @@
     "@patternfly/react-core": "3.129.3",
     "@patternfly/react-icons": "3.14.30",
     "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react-dom": "16.12.0",
+    "focus-trap-react": "6.0.0"
   },
   "devDependencies": {
     "@types/react": "16.9.17",
