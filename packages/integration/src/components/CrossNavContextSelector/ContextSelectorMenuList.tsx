@@ -36,7 +36,7 @@ export class ContextSelectorMenuList extends React.Component<ContextSelectorMenu
   render = () => {
     const { className, isOpen, children, ...props } = this.props;
     return (
-      <ul className={css(styles.contextSelectorMenuList, className)} hidden={!isOpen} role="menu" {...props}>
+      <ul hidden={!isOpen} role="menu" {...props}>
         {this.extendChildren()}
       </ul>
     );

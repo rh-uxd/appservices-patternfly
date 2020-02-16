@@ -29,7 +29,7 @@ import {
   ToolbarGroup,
   ToolbarItem
 } from '@patternfly/react-core';
-import {CrossNavHeader} from '@rh-uxd/integration'
+import {CrossNavHeader, CrossNavApp} from '@rh-uxd/integration';
 // make sure you've installed @patternfly/patternfly
 import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibility/accessibility';
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
@@ -166,8 +166,12 @@ export class App extends React.Component<{}, {
         </Toolbar>
       );
   
+      const apps: CrossNavApp[] = [
+        {id: 'home-app', name: 'Home App', url:'localhost:3000'},
+        {id: 'demo-app', name: 'Demo App', url:'localhost:3001'}];        
       const Header = (
         <CrossNavHeader
+          apps={apps}
           logo={<Brand src={imgBrand} alt="Patternfly Logo" />}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}

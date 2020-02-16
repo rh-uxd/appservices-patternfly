@@ -9,6 +9,7 @@
     "build": " tsc && tsc -m es6 --outDir ./dist/esm && webpack --config webpack.config.js",
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
+    "start:dev": "watch 'npm run build' src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Red Hat",
@@ -32,6 +33,7 @@
     "ts-loader": "6.2.1",
     "typescript": "3.7.4",
     "url-loader": "3.0.0",
+    "watch": "1.0.2",
     "webpack": "4.41.5",
     "webpack-bundle-analyzer": "3.6.0",
     "webpack-cli": "3.3.10",

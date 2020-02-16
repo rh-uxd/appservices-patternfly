@@ -16,7 +16,8 @@
     "scripts": {
       "clean": "lerna run clean",
       "build": "lerna run build",
-      "start": "lerna run start"
+      "start:dev": "lerna run start:dev",
+      "start:demo": "lerna run start:demo"
     },
     "devDependencies": {
       "lerna": "3.20.2"
