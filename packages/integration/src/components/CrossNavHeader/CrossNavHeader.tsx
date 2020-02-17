@@ -132,7 +132,8 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                 </div>
               )}
               {/* Hide for now until we have the context selector component */}
-              {<CrossNavContextSelector 
+              {
+                <CrossNavContextSelector 
                   toggleText = {currentApp.name} 
                   onToggle={this.onToggle}
                   onSelect={this.onSelect}
@@ -141,7 +142,8 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                     {
                       apps.map((app: CrossNavApp) => (<CrossNavContextSelectorItem key={app.id} app={app}>{app.name}</CrossNavContextSelectorItem>))
                     }
-                </CrossNavContextSelector>}
+                </CrossNavContextSelector>
+                }
               {topNav && <div className={css(styles.pageHeaderNav)}>{topNav}</div>}
               {(toolbar || avatar) && (
                 <div className={css(styles.pageHeaderTools)}>
