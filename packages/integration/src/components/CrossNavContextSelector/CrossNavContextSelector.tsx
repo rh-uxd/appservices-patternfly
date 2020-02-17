@@ -2,12 +2,9 @@ import React from 'react';
 import { ContextSelectorProps, Omit } from '@patternfly/react-core';
 import { ContextSelectorToggle } from './ContextSelectorToggle';
 import { ContextSelectorMenuList } from './ContextSelectorMenuList';
+import { CrossNavApp, ContextSelectorContext } from './CrossNavContextSelectorConstants';
 import styles from '@patternfly/react-styles/css/components/ContextSelector/context-selector';
 import { css } from '@patternfly/react-styles';
-
-const ContextSelectorContext = React.createContext({
-  onSelect: (event: any, value: React.ReactNode): any => undefined
-});
 
 export interface CrossNavContextSelectorProps extends Omit<ContextSelectorProps, 'onSearchButtonClick' |
   'onSearchInputChange' |

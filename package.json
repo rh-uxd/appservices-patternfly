@@ -17,7 +17,8 @@
       "clean": "lerna run clean",
       "build": "lerna run build",
       "start:dev": "lerna run start:dev",
-      "start:demo": "lerna run start:demo"
+      "start:demo": "lerna run start:demo",
+      "start:demo2": "PORT=3006 lerna run start:demo"
     },
     "devDependencies": {
       "lerna": "3.20.2"
