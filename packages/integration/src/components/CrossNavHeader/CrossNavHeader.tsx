@@ -13,6 +13,7 @@ export type CrossNavAppState = {
 }
 
 export interface CrossNavHeaderProps extends PageHeaderProps {
+  /** Application data for applications shown in the cross console navigation.  Note if a protocol is not specified to use when navigating for an app, it will default to https*/
   apps: CrossNavApp[];
   onAppNavigate?: (currentApp: CrossNavApp
     ) => void;
@@ -63,14 +64,14 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
     });
   };
 
-  onSelect = (event: any, value: any) => {
-    debugger;
+  private onSelect = (event: any, app: CrossNavApp) => {
     if (this.props.onAppNavigate) {
-      this.props.onAppNavigate(value);
+      this.props.onAppNavigate(app);
     }
     this.setState({
       isOpen: !this.state.isOpen
     });
+    window.location.href = app.isHttp === true ? `http://${app.url}`: `https://${app.url}`;
   }
 
   render() {
@@ -135,7 +136,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                   isOpen={isOpen}
                   >
                     {
-                      apps.map((app: CrossNavApp) => (<CrossNavContextSelectorItem key={app.id}>{app.name}</CrossNavContextSelectorItem>))
+                      apps.map((app: CrossNavApp) => (<CrossNavContextSelectorItem key={app.id} app={app}>{app.name}</CrossNavContextSelectorItem>))
                     }
                 </CrossNavContextSelector>}
               {topNav && <div className={css(styles.pageHeaderNav)}>{topNav}</div>}
