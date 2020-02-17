@@ -8,7 +8,7 @@ export type CrossNavApp = {
   /** URL to navigate too when the application is selected from context selector */
   url: string;
   /** Indicates if the connection is HTTP instead of HTTPS  */
-  isHttp: boolean;
+  isHttp?: boolean;
 }
  
 export const ContextSelectorContext = React.createContext({
