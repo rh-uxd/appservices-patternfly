@@ -2,17 +2,8 @@ import * as React from 'react';
 import styles from '@patternfly/react-styles/css/components/Page/page';
 import { css } from '@patternfly/react-styles';
 import { BarsIcon } from '@patternfly/react-icons';
-import { Button, ButtonVariant, PageHeaderProps, PageContextConsumer, ContextSelector, ContextSelectorItem } from '@patternfly/react-core';
-import { CrossNavContextSelector } from '../CrossNavContextSelector';
-
-export type CrossNavApp = {
-  /** Uniquie identifer for application */
-  id: string;
-  /** Application name to display to the user */
-  name: string;
-  /** URL to navigate too when the application is selected from context selector */
-  url: string;
-}
+import { Button, ButtonVariant, PageHeaderProps, PageContextConsumer } from '@patternfly/react-core';
+import { CrossNavApp, CrossNavContextSelector, CrossNavContextSelectorItem } from '../CrossNavContextSelector';
 
 export type CrossNavAppState = {
   /** The current URL (including any parameters) that user navigated too. */
@@ -72,8 +63,14 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
     });
   };
 
-  private onSelect = (event: any, value: any) => {
-
+  onSelect = (event: any, value: any) => {
+    debugger;
+    if (this.props.onAppNavigate) {
+      this.props.onAppNavigate(value);
+    }
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   render() {
@@ -138,7 +135,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                   isOpen={isOpen}
                   >
                     {
-                      apps.map((app: CrossNavApp) => (<ContextSelectorItem key={app.id}>{app.name}</ContextSelectorItem>))
+                      apps.map((app: CrossNavApp) => (<CrossNavContextSelectorItem key={app.id}>{app.name}</CrossNavContextSelectorItem>))
                     }
                 </CrossNavContextSelector>}
               {topNav && <div className={css(styles.pageHeaderNav)}>{topNav}</div>}
