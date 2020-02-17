@@ -168,11 +168,12 @@ export class App extends React.Component<{}, {
       );
   
       const apps: CrossNavApp[] = [
-        {id: 'home-app', name: 'Home App', url:'localhost:3000', isHttp: true},
-        {id: 'demo-app', name: 'Demo App', url:'localhost:3001', isHttp: true}];        
+        {id: 'first-demo-app', name: 'First Demo App', url:'localhost:3000', isHttp: true},
+        {id: 'second-demo-app', name: 'Second Demo App', url:'localhost:3001', isHttp: true}];        
       const Header = (
         <CrossNavHeader
           apps={apps}
+          currentApp = {{id: 'first-demo-app', name: 'First Demo App', url:'localhost:3000', isHttp: true}}
           logo={<Brand src={imgBrand} alt="Patternfly Logo" />}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
@@ -186,8 +187,8 @@ export class App extends React.Component<{}, {
       const PageBreadcrumb = (
         <Breadcrumb>
           <BreadcrumbItem>Section home</BreadcrumbItem>
-          <BreadcrumbItem to="#">Section title</BreadcrumbItem>
-          <BreadcrumbItem to="#">Section title</BreadcrumbItem>
+          <BreadcrumbItem to="#">First Demo</BreadcrumbItem>
+          <BreadcrumbItem to="#">Main Section</BreadcrumbItem>
           <BreadcrumbItem to="#" isActive>
             Section landing
           </BreadcrumbItem>
