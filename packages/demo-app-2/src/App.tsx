@@ -168,12 +168,12 @@ export class App extends React.Component<{}, {
       );
   
       const apps: CrossNavApp[] = [
-        {id: 'first-demo-app', name: 'First Demo App', url:'localhost:3000', isHttp: true},
-        {id: 'second-demo-app', name: 'Second Demo App', url:'localhost:3001', isHttp: true}];        
+        {id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3000', isHttp: true},
+        {id: 'second-demo-app', name: 'Second Demo App', rootUrl:'localhost:3001', isHttp: true}];        
       const Header = (
         <CrossNavHeader
           apps={apps}
-          currentApp={{id: 'second-demo-app', name: 'Second Demo App', url:'localhost:3001', isHttp: true}}
+          currentApp={{id: 'second-demo-app', name: 'Second Demo App', rootUrl:'localhost:3001', isHttp: true}}
           logo={<Brand src={imgBrand} alt="Patternfly Logo" />}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}

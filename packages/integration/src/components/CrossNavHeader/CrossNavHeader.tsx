@@ -16,13 +16,13 @@ export interface CrossNavHeaderProps extends PageHeaderProps {
   /** Application data for applications shown in the cross console navigation.  Note if a protocol is not specified to use when navigating for an app, it will default to https*/
   apps: CrossNavApp[];
   currentApp: CrossNavApp;
-  onAppNavigate?: (currentApp: CrossNavApp
+  onAppNavigate?: (app: CrossNavApp
     ) => void;
 }
 
 interface CrossNavHeaderState {
   readonly isOpen: boolean;
-  readonly currentApp: CrossNavApp;
+  readonly initalLoad: boolean;
 }
 
 export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNavHeaderState> {
@@ -30,8 +30,8 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
   constructor(props: CrossNavHeaderProps) {
     super(props);
     this.state = {
-      currentApp: this.props.apps[0],
-      isOpen: false
+      isOpen: false,
+      initalLoad: true
     }
   }
   /** 
@@ -72,14 +72,15 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
     this.setState({
       isOpen: !this.state.isOpen
     });
-    if (app !== this.props.currentApp) {
-      window.location.href = app.isHttp === true ? `http://${app.url}`: `https://${app.url}`;
+    if (app.rootUrl.indexOf(this.props.currentApp.rootUrl)) {
+      window.location.href = app.isHttp === true ? `http://${app.rootUrl}`: `https://${app.rootUrl}`;
     }
   }
 
   render() {
 
     const { apps = null as CrossNavApp[],
+      currentApp,
       className = '',
       logo = null as React.ReactNode,
       logoProps = null as object,
@@ -96,7 +97,6 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
     const LogoComponent = logoComponent as any;
 
     const {
-      currentApp,
       isOpen
     } = this.state;
 
@@ -131,7 +131,6 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                   )}
                 </div>
               )}
-              {/* Hide for now until we have the context selector component */}
               {<CrossNavContextSelector 
                   toggleText = {currentApp.name} 
                   onToggle={this.onToggle}

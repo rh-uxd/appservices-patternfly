@@ -5,8 +5,8 @@ export type CrossNavApp = {
   id: string;
   /** Application name to display to the user */
   name: string;
-  /** URL to navigate too when the application is selected from context selector */
-  url: string;
+  /** Root URL for the application*/
+  rootUrl: string;
   /** Indicates if the connection is HTTP instead of HTTPS  */
   isHttp?: boolean;
 }

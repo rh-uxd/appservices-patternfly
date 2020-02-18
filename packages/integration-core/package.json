@@ -1,0 +1,32 @@
+{
+  "name": "@rh-uxd/integration-core",
+  "version": "0.1.0",
+  "description": "Common javascript, css, and html code for redhat integration products",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rh-uxd/integration"
+  },
+  "main": "dist/js/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/js/index.d.ts",
+  "scripts": {
+    "build": " tsc && tsc -m es6 --outDir ./dist/esm && webpack --config webpack.config.js",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "lint": "tslint -c ./tslint.json --project .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Red Hat",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4"
+  }
+}
