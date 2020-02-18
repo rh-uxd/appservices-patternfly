@@ -5,7 +5,6 @@ import { ContextSelectorMenuList } from './ContextSelectorMenuList';
 import { CrossNavApp, ContextSelectorContext } from './CrossNavContextSelectorConstants';
 import styles from '@patternfly/react-styles/css/components/ContextSelector/context-selector';
 import { css } from '@patternfly/react-styles';
-// import './CrossNavContextSelector.css';
 
 export interface CrossNavContextSelectorProps extends Omit<ContextSelectorProps, 'onSearchButtonClick' |
   'onSearchInputChange' |
@@ -35,7 +34,9 @@ export class CrossNavContextSelector extends React.Component<CrossNavContextSele
       ...props
     } = this.props;
     return (
-      <div className="app-context-selector-wrapper">
+      <div 
+        className="app-context-selector-wrapper"
+      >
       <div
         className={css(styles.contextSelector, isOpen && styles.modifiers.expanded, className)}
         ref={this.parentRef}
