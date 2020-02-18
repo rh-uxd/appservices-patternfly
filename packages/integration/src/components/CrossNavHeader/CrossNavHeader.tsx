@@ -140,7 +140,8 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                     {
                       apps.map((app: CrossNavApp) => (<CrossNavContextSelectorItem key={app.id} app={app}>{app.name}</CrossNavContextSelectorItem>))
                     }
-                </CrossNavContextSelector>}
+                </CrossNavContextSelector>
+                }
               {topNav && <div className={css(styles.pageHeaderNav)}>{topNav}</div>}
               {(toolbar || avatar) && (
                 <div className={css(styles.pageHeaderTools)}>

@@ -174,7 +174,7 @@ export class App extends React.Component<{}, {
         <CrossNavHeader
           apps={apps}
           currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3000', isHttp: true}}
-          logo={<Brand src={imgBrand} alt="Patternfly Logo" />}
+          logo={<Brand src={imgBrand} alt="Patternfly Logo" width="80px"/>}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
           showNavToggle

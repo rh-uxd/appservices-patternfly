@@ -34,6 +34,9 @@ export class CrossNavContextSelector extends React.Component<CrossNavContextSele
       ...props
     } = this.props;
     return (
+      <div 
+        className="app-context-selector-wrapper"
+      >
       <div
         className={css(styles.contextSelector, isOpen && styles.modifiers.expanded, className)}
         ref={this.parentRef}
@@ -61,6 +64,7 @@ export class CrossNavContextSelector extends React.Component<CrossNavContextSele
             )}
           </div>
         )}
+      </div>
       </div>
     );
   }
