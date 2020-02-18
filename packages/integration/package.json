@@ -4,7 +4,7 @@
   "description": "Set of common react integration components",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rh-uxd/integration"
+    "url": "git+https://github.com/rh-uxd/integration.git"
   },
   "main": "dist/js/index.js",
   "module": "dist/esm/index.js",
@@ -43,5 +43,12 @@
     "webpack-cli": "3.3.10",
     "webpack-dev-server": "3.10.1",
     "webpack-merge": "4.2.2"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/rh-uxd/integration/issues"
+  },
+  "homepage": "https://github.com/rh-uxd/integration#readme"
 }
