@@ -1,7 +1,11 @@
 {
   "name": "@rh-uxd/integration",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Set of common react integration components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rh-uxd/integration"
+  },
   "main": "dist/js/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/js/index.d.ts",
