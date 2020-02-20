@@ -1,8 +1,9 @@
 import React from 'react';
 import { ContextSelectorProps, Omit } from '@patternfly/react-core';
+import { CrossNavApp } from '@rh-uxd/integration-core';
 import { ContextSelectorToggle } from './ContextSelectorToggle';
 import { ContextSelectorMenuList } from './ContextSelectorMenuList';
-import { CrossNavApp, ContextSelectorContext } from './CrossNavContextSelectorConstants';
+import { ContextSelectorContext } from './CrossNavContextSelectorConstants';
 import styles from '@patternfly/react-styles/css/components/ContextSelector/context-selector';
 import { css } from '@patternfly/react-styles';
 
