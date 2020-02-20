@@ -1,5 +1,5 @@
 {
-  "name": "@rh-uxd/integration",
+  "name": "@rh-uxd/integration-react",
   "version": "0.1.0",
   "description": "Set of common react integration components",
   "repository": {

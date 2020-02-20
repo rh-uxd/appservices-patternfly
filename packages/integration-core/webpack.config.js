@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -23,5 +24,12 @@ module.exports = {
     libraryTarget: 'umd',
     library: 'apicurio-models',
     umdNamedDefine: true
-  }
+  },
+  plugins: [
+    new CopyPlugin([
+      { 
+        from: path.resolve(__dirname, 'styles'), 
+        to: path.resolve(__dirname, 'dist/styles')
+      }])
+    ]
 };

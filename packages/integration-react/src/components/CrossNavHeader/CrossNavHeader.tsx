@@ -41,7 +41,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
    * @param userId - Uniquie identifer for the user.  Defaults to no user.
    * @param appState - Object containing the current state of the application.
    */
-  static setLastKnownApp(appId: string, userId: string = '', appState: CrossNavAppState) {
+  static setAppNavState(appId: string, userId: string = '', appState: CrossNavAppState) {
     const storage = window.localStorage;
     storage.setItem(`${appId}${userId}`, JSON.stringify(appState));
   }
@@ -54,7 +54,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
    * 
    * @returns Saved application state retrieved from local storage.
    */
-   static getLastKnownApp(appId: string, userId: string = ''): CrossNavAppState {
+   static getAppNavState(appId: string, userId: string = ''): CrossNavAppState {
      const storage = window.localStorage;
      return JSON.parse(storage.getItem(`${appId}${userId}`));
   }

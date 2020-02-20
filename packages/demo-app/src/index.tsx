@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '@patternfly/react-core/dist/styles/base.css';
+import '@rh-uxd/integration-core/dist/styles/core.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

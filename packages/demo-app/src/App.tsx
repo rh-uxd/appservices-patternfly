@@ -29,7 +29,7 @@ import {
   ToolbarGroup,
   ToolbarItem
 } from '@patternfly/react-core';
-import {CrossNavHeader, CrossNavApp} from '@rh-uxd/integration';
+import {CrossNavHeader, CrossNavApp} from '@rh-uxd/integration-react';
 // make sure you've installed @patternfly/patternfly
 import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibility/accessibility';
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
@@ -37,7 +37,7 @@ import { css } from '@patternfly/react-styles';
 import { BellIcon, CogIcon } from '@patternfly/react-icons';
 import imgBrand from './logo.svg';
 import imgAvatar from './logo.svg';
-import './App.css'
+//import './App.css'
 
 export class App extends React.Component<{}, {
   isDropdownOpen: boolean,
