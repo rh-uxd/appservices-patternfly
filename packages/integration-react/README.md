@@ -7,11 +7,11 @@ This package provides react componets for use with Redhat integration products. 
 
 ## Installation
 
-`npm install @rh-uxd/integration --save`
+`npm install @rh-uxd/integration-react --save`
 
 or 
 
-`yarn add @rh-uxd/integration`
+`yarn add @rh-uxd/integration-react`
 
 
 ## Building the library
