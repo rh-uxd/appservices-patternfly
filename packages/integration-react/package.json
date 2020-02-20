@@ -1,6 +1,6 @@
 {
   "name": "@rh-uxd/integration-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Set of common react integration components",
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   "dependencies": {
     "@patternfly/react-core": "3.129.3",
     "@patternfly/react-icons": "3.14.30",
-    "@rh-uxd/integration-core": "0.1.0",
+    "@rh-uxd/integration-core": "0.1.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "focus-trap-react": "6.0.0"

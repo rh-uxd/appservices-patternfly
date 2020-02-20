@@ -3,15 +3,15 @@ import styles from '@patternfly/react-styles/css/components/Page/page';
 import { css } from '@patternfly/react-styles';
 import { BarsIcon } from '@patternfly/react-icons';
 import { Button, ButtonVariant, PageHeaderProps, PageContextConsumer } from '@patternfly/react-core';
-import { CrossNavApp, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/integration-core';
+import { CrossNavApp, CrossNavAppState, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/integration-core';
 import { CrossNavContextSelector, CrossNavContextSelectorItem } from '../CrossNavContextSelector';
 
-export type CrossNavAppState = {
-  /** The current URL (including any parameters) that user navigated too. */
-  currentURL: string; 
-  /** An object that contains any state data that is need to restore the current application state.  */
-  stateData: any;
-}
+// export type CrossNavAppState = {
+//   /** The current URL (including any parameters) that user navigated too. */
+//   currentURL: string; 
+//   /** An object that contains any state data that is need to restore the current application state.  */
+//   stateData: any;
+// }
 
 export interface CrossNavHeaderProps extends PageHeaderProps {
   /** Application data for applications shown in the cross console navigation.  Note if a protocol is not specified to use when navigating for an app, it will default to https*/
