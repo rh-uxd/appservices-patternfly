@@ -3,7 +3,8 @@ import styles from '@patternfly/react-styles/css/components/Page/page';
 import { css } from '@patternfly/react-styles';
 import { BarsIcon } from '@patternfly/react-icons';
 import { Button, ButtonVariant, PageHeaderProps, PageContextConsumer } from '@patternfly/react-core';
-import { CrossNavApp, CrossNavContextSelector, CrossNavContextSelectorItem } from '../CrossNavContextSelector';
+import { CrossNavApp, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/integration-core';
+import { CrossNavContextSelector, CrossNavContextSelectorItem } from '../CrossNavContextSelector';
 
 export type CrossNavAppState = {
   /** The current URL (including any parameters) that user navigated too. */
@@ -42,8 +43,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
    * @param appState - Object containing the current state of the application.
    */
   static setAppNavState(appId: string, userId: string = '', appState: CrossNavAppState) {
-    const storage = window.localStorage;
-    storage.setItem(`${appId}${userId}`, JSON.stringify(appState));
+    setAppNavState(appId, userId, appState);
   }
 
   /**
@@ -55,8 +55,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
    * @returns Saved application state retrieved from local storage.
    */
    static getAppNavState(appId: string, userId: string = ''): CrossNavAppState {
-     const storage = window.localStorage;
-     return JSON.parse(storage.getItem(`${appId}${userId}`));
+     return getAppNavState(appId, userId);
   }
 
   private onToggle = (event: any, isOpen: boolean) => {
@@ -72,9 +71,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
     this.setState({
       isOpen: !this.state.isOpen
     });
-    if (app.rootUrl.indexOf(this.props.currentApp.rootUrl)) {
-      window.location.href = app.isHttp === true ? `http://${app.rootUrl}`: `https://${app.rootUrl}`;
-    }
+    navigateToApp(this.props.currentApp, app);
   }
 
   render() {

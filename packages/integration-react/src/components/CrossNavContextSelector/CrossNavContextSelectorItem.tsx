@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styles from '@patternfly/react-styles/css/components/ContextSelector/context-selector';
 import { css } from '@patternfly/react-styles';
-import { CrossNavApp, ContextSelectorContext } from './CrossNavContextSelectorConstants';
+import { CrossNavApp } from '@rh-uxd/integration-core'
+import { ContextSelectorContext } from './CrossNavContextSelectorConstants';
 
 export interface CrossNavContextSelectorItemProps {
   /** Anything which can be rendered as Context Selector item */
