@@ -11,6 +11,7 @@
   "types": "dist/js/index.d.ts",
   "scripts": {
     "build": " tsc && tsc -m es6 --outDir ./dist/esm && webpack --config webpack.config.js",
+    "buildDoc": "typedoc",
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
     "lint": "tslint -c ./tslint.json --project .",
@@ -22,7 +23,8 @@
     "copy-webpack-plugin": "^5.1.1",
     "rimraf": "^2.6.2",
     "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
+    "typedoc": "0.16.10",
+    "typescript": "^3.7.4",
     "webpack": "^4.25.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",

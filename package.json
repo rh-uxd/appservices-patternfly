@@ -16,6 +16,7 @@
     "scripts": {
       "clean": "lerna run clean",
       "build": "lerna run build",
+      "buildDoc": "lerna run buildDoc",
       "start:dev": "lerna run start:dev",
       "start:demo": "lerna run start:demo",
       "start:demo2": "PORT=3006 lerna run start:demo"

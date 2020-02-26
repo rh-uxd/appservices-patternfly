@@ -18,5 +18,13 @@
   "include": [
     "**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "typedocOptions": {
+    "exclude": ["**/*+(index|.spec|.e2e).ts"],
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "inputFiles": ["./src"],
+    "mode": "file",
+    "out": "docs"
+  }
 }
