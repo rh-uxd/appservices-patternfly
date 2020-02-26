@@ -11,6 +11,7 @@
   "types": "dist/js/index.d.ts",
   "scripts": {
     "build": " tsc && tsc -m es6 --outDir ./dist/esm && webpack --config webpack.config.js",
+    "buildDoc": "typedoc",
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
     "start:dev": "watch 'npm run build' src",
@@ -22,13 +23,12 @@
     "@patternfly/react-core": "3.129.3",
     "@patternfly/react-icons": "3.14.30",
     "@rh-uxd/integration-core": "0.1.1",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "focus-trap-react": "6.0.0"
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
   },
   "devDependencies": {
-    "@types/react": "16.9.17",
-    "@types/react-dom": "16.0.5",
+    "@types/react": "16.9.23",
+    "@types/react-dom": "16.9.5",
     "css-loader": "3.4.1",
     "path": "0.12.7",
     "raw-loader": "4.0.0",
@@ -36,6 +36,7 @@
     "svg-url-loader": "3.0.3",
     "style-loader": "1.1.2",
     "ts-loader": "6.2.1",
+    "typedoc": "0.16.10",
     "typescript": "3.7.4",
     "url-loader": "3.0.0",
     "watch": "1.0.2",
