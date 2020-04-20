@@ -6,13 +6,6 @@ import { Button, ButtonVariant, PageHeaderProps, PageContextConsumer } from '@pa
 import { CrossNavApp, CrossNavAppState, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/integration-core';
 import { CrossNavContextSelector, CrossNavContextSelectorItem } from '../CrossNavContextSelector';
 
-// export type CrossNavAppState = {
-//   /** The current URL (including any parameters) that user navigated too. */
-//   currentURL: string; 
-//   /** An object that contains any state data that is need to restore the current application state.  */
-//   stateData: any;
-// }
-
 export interface CrossNavHeaderProps extends PageHeaderProps {
   /** Application data for applications shown in the cross console navigation.  Note if a protocol is not specified to use when navigating for an app, it will default to https*/
   apps: CrossNavApp[];
@@ -128,7 +121,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                   )}
                 </div>
               )}
-              {<CrossNavContextSelector 
+              {apps.length > 0 ? <CrossNavContextSelector 
                   toggleText = {currentApp.name} 
                   onToggle={this.onToggle}
                   onSelect={this.onSelect}
@@ -137,7 +130,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                     {
                       apps.map((app: CrossNavApp) => (<CrossNavContextSelectorItem key={app.id} app={app}>{app.name}</CrossNavContextSelectorItem>))
                     }
-                </CrossNavContextSelector>
+                </CrossNavContextSelector> : null
                 }
               {topNav && <div className={css(styles.pageHeaderNav)}>{topNav}</div>}
               {(toolbar || avatar) && (
