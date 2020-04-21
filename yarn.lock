@@ -2444,6 +2444,11 @@
   resolved "https://registry.yarnpkg.com/@patternfly/react-tokens/-/react-tokens-2.8.4.tgz#20cb17f2196a25d9cc6ae4cc0e79686ea9bf0bbd"
   integrity sha512-GlLyutls0bG39Nwl/sv2FUkicwyRNrXQFso+e7Y4470+VOUtSsVSdQz+rTjgPxQ38olKPsSZdtEjqN9o2PbDiw==
 
+"@rh-uxd/integration-core@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@rh-uxd/integration-core/-/integration-core-0.1.1.tgz#59d98d0ea169e955fa09a2027759e0c96bf33ea7"
+  integrity sha512-IAOgEBtSq+lrzOY9AeC2pISAt6Car+4Qjw9LPGhs90OlvsyGxGeafJLfR/gSfImUEuSlLoOLbo/sUi8tpMFXOg==
+
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
