@@ -21,7 +21,7 @@
 }
 
 .app-context-selector-wrapper {
-  height: 100%;
+  height: 76px;
   grid-column: 2;
   grid-row: 2;
 }
@@ -161,7 +161,7 @@
   .pf-c-page__header-tools {
     display: flex;
     justify-content: flex-end;
-    height: 100%;
+    height: 76px;
     border-top: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--200);
     margin-top: 0 !important;
     margin-right: 0 !important;
@@ -173,6 +173,6 @@
   }
 
   .pf-c-page__header-brand-toggle {
-    height: 100%;
+    height: 76px;
   }
 }
