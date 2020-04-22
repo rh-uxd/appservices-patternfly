@@ -35,8 +35,9 @@ import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibili
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
 import { css } from '@patternfly/react-styles';
 import { BellIcon, CogIcon } from '@patternfly/react-icons';
-import imgBrand from './logo.svg';
 import imgAvatar from './logo.svg';
+import rhIntegrationLogo from './Logo-Red_Hat-Integration-A-Standard-RGB.png';
+
 //import './App.css'
 
 export class App extends React.Component<{}, {
@@ -174,7 +175,7 @@ export class App extends React.Component<{}, {
         <CrossNavHeader
           apps={apps}
           currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3000', isHttp: true}}
-          logo={<Brand src={imgBrand} alt="Patternfly Logo" width="80px"/>}
+          logo={<Brand src={rhIntegrationLogo} alt="Red Hat Integration Logo"/>}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
           showNavToggle
