@@ -97,7 +97,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
           const navOpen = isManagedSidebar ? managedIsNavOpen : isNavOpen;
 
           return (
-            <header role="banner" className={css(styles.pageHeader, className)} {...props}>
+            <header role="banner" className={`${css(styles.pageHeader, className)} ${!showNavToggle ? 'pf-m-no-toggle' : ''} `} {...props}>
               {showNavToggle && (
                 <div className={css(styles.pageHeaderBrandToggle)}>
                   <Button

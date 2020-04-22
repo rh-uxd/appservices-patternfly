@@ -177,7 +177,6 @@ export class App extends React.Component<{}, {
           logo={<Brand src={rhIntegrationLogo} alt="Red Hat Integration Logo" />}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
-          showNavToggle
         />
       );
       const Sidebar = <PageSidebar nav={PageNav} theme="dark" />;
