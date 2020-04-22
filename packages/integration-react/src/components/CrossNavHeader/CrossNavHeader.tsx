@@ -98,28 +98,24 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
 
           return (
             <header role="banner" className={css(styles.pageHeader, className)} {...props}>
-              {(showNavToggle || logo) && (
-                <div className={css(styles.pageHeaderBrand)}>
-                  {showNavToggle && (
-                    <div className={css(styles.pageHeaderBrandToggle)}>
-                      <Button
-                        id="nav-toggle"
-                        onClick={navToggle}
-                        aria-label={ariaLabel}
-                        aria-controls="page-sidebar"
-                        aria-expanded={navOpen ? 'true' : 'false'}
-                        variant={ButtonVariant.plain}
-                      >
-                        <BarsIcon />
-                      </Button>
-                    </div>
-                  )}
-                  {logo && (
-                    <LogoComponent className={css(styles.pageHeaderBrandLink)} {...logoProps}>
-                      {logo}
-                    </LogoComponent>
-                  )}
+              {showNavToggle && (
+                <div className={css(styles.pageHeaderBrandToggle)}>
+                  <Button
+                    id="nav-toggle"
+                    onClick={navToggle}
+                    aria-label={ariaLabel}
+                    aria-controls="page-sidebar"
+                    aria-expanded={navOpen ? 'true' : 'false'}
+                    variant={ButtonVariant.plain}
+                  >
+                    <BarsIcon />
+                  </Button>
                 </div>
+              )}
+              {logo && (
+                <LogoComponent className={css(styles.pageHeaderBrandLink)} {...logoProps}>
+                  {logo}
+                </LogoComponent>
               )}
               {apps.length > 0 ? <CrossNavContextSelector 
                   toggleText = {currentApp.name} 
