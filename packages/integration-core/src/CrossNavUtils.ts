@@ -1,3 +1,6 @@
+import axios from 'axios';
+import {IntegrationProductInfo} from './common/IntegrationProductInfo';
+
 export type CrossNavApp = {
     /** Uniquie identifer for application */
     id: string;
@@ -56,11 +59,34 @@ export const navigateToApp = (currentApp: CrossNavApp, nextApp: CrossNavApp) => 
 /**
  * Retrieves the list of integration apps available for cross navigation.
  * 
+ * @param url - The URL to the server.
  * @returns Returns the list of cross nav apps, if no apps are available null is returned.
  */
-export const getAvailableApps = (): CrossNavApp[] => {
-    let apps: CrossNavApp = null
-    //TODO: Add network call to retrieve apps from solution explorer server.
-    // If we can reach server get the apps, if we can't reach or it's unavialable return null.
-    return null;
+export const getAvailableApps = (url: string): Promise<CrossNavApp[]> => {
+  let apps: CrossNavApp = null
+   
+  return new Promise<CrossNavApp[]>((resolve) => {
+    axios.get(`${url}/services`).then(resp => {
+      const appEntries: CrossNavApp[] = [];
+      Object.entries(resp.data).forEach((app: [string, any]) => {
+        switch (app[0]) {
+          case '3scale':
+            appEntries.push({ id: app[0], name: IntegrationProductInfo["3scale"].prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            break;
+          case 'amqonline':
+            appEntries.push({ id: app[0], name: IntegrationProductInfo.amqonline.prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            break;
+          case 'apicurito':
+            appEntries.push({ id: app[0], name: IntegrationProductInfo.apicurito.prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            break;
+          case 'fuse-managed':
+            appEntries.push({ id: app[0], name: IntegrationProductInfo["fuse-managed"].prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            break;
+          default:
+            break;
+        }
+      });
+      resolve(appEntries);
+    });
+  });
 }
