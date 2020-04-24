@@ -58,8 +58,7 @@ img.pf-c-brand {
 .pf-m-expanded.pf-c-context-selector__toggle::before,
 .pf-c-context-selector__toggle:hover::before,
 .pf-c-context-selector__toggle:focus::before {
-  border-top-color: var(--pf-global--active-color--100) !important;
-  border-top-width: var(--pf-global--BorderWidth--lg);
+  border-top: var(--pf-global--BorderWidth--lg) solid var(--pf-global--active-color--100) !important;
 }
 
 .pf-c-page__header-brand-toggle {
