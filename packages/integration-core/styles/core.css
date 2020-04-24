@@ -1,5 +1,5 @@
 .pf-c-page__header.pf-m-no-toggle {
-  grid-template-columns: auto auto !important;
+  grid-template-columns: minmax(150px, 200px) auto !important;
 }
 
 .pf-c-page__header.pf-m-no-toggle .app-context-selector-wrapper {
@@ -156,6 +156,11 @@
 
   .pf-c-context-selector__toggle {
     background-color: transparent;
+  }
+
+  .pf-c-page__header-brand-link {
+    padding-left: var(--pf-global--spacer--md);
+    padding-right: var(--pf-global--spacer--md);
   }
 
   .pf-c-page__header-tools {
