@@ -1,5 +1,5 @@
 .pf-c-page__header.pf-m-no-toggle {
-  grid-template-columns: minmax(150px, 200px) auto !important;
+  grid-template-columns: minmax(auto, 290px) auto !important;
 }
 
 .pf-c-page__header.pf-m-no-toggle .app-context-selector-wrapper {
@@ -20,6 +20,10 @@
   grid-template-columns: auto auto auto !important;
 }
 
+img.pf-c-brand {
+  height: 50px;
+}
+
 .app-context-selector-wrapper {
   height: 76px;
   grid-column: 2;
@@ -33,23 +37,21 @@
 
 .pf-c-context-selector {
   height: 100%;
-  width: 100%;
+  width: 240px !important;
 }
 
 .pf-c-context-selector__toggle {
   height: 100%;
   width: 100%;
+  padding-left: var(--pf-global--spacer--md) !important;
   background-color: var(--pf-global--BackgroundColor--dark-200);
 }
 
 .pf-c-context-selector__toggle::before {
-  border-top-color: var(--pf-global--BorderColor--200) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
   border-right-color: var(--pf-global--BorderColor--200) !important;
-  border-bottom-color: var(--pf-global--BorderColor--200) !important;
   border-left-color: var(--pf-global--BorderColor--200) !important;
-}
-
-.pf-c-context-selector__toggle::before {
   border-bottom-width: 0px !important;
 }
 
@@ -70,12 +72,8 @@
 .pf-c-page__header-brand-toggle .pf-c-button {
   margin-left: 0 !important;
   margin-right: 0 !important;
-  padding: 16px;
-}
-
-.pf-c-page__header-brand-toggle {
-  grid-column: 1;
-  grid-row: 2;
+  padding-left: var(--pf-global--spacer--md);
+  padding-right: var(--pf-global--spacer--md);
 }
 
 .pf-c-page__header-brand-link {
@@ -85,7 +83,7 @@
 
 @media screen and (min-width: 576px) {
   .pf-c-page__header {
-    grid-template-columns: minmax(80px, 200px) auto auto !important;
+    grid-template-columns: minmax(auto, 72px) minmax(auto, 218px) auto auto !important;
   }
 
   .pf-c-page__header.pf-m-no-toggle .app-context-selector-wrapper {
@@ -98,10 +96,6 @@
 
   .pf-c-page__header.pf-m-no-toggle .pf-c-page__header-brand-link {
     grid-column: 1 !important;
-  }
-
-  .pf-c-page__header {
-    grid-template-columns: 60px minmax(80px, 200px) auto auto !important;
   }
 
   .app-context-selector-wrapper {
