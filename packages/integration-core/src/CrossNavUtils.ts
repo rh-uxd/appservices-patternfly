@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosRequestConfig} from 'axios';
 import {IntegrationProductInfo} from './common/IntegrationProductInfo';
 
 export type CrossNavApp = {
@@ -62,11 +62,18 @@ export const navigateToApp = (currentApp: CrossNavApp, nextApp: CrossNavApp) => 
  * @param url - The URL to the server.
  * @returns Returns the list of cross nav apps, if no apps are available null is returned.
  */
-export const getAvailableApps = (url: string): Promise<CrossNavApp[]> => {
+export const getAvailableApps = (url: string, config: AxiosRequestConfig = {}): Promise<CrossNavApp[]> => {
   let apps: CrossNavApp = null
    
   return new Promise<CrossNavApp[]>((resolve) => {
-    axios.get(`${url}/services`).then(resp => {
+    const options: AxiosRequestConfig = {headers: { "Accept": "application/json" }};
+    const requestConfig: AxiosRequestConfig = {...{
+      method: 'get',
+      url: `${url}/services`
+    }, ...options, ...config}
+    axios.request(requestConfig).then(resp => {
+      debugger;
+      console.log('Retrieved available apps from server.')
       const appEntries: CrossNavApp[] = [];
       Object.entries(resp.data).forEach((app: [string, any]) => {
         switch (app[0]) {
@@ -87,6 +94,9 @@ export const getAvailableApps = (url: string): Promise<CrossNavApp[]> => {
         }
       });
       resolve(appEntries);
+    }).catch((reason: any) => {
+      console.log('Unable to retrieve list of available apps.')
+      resolve([]);
     });
   });
 }
