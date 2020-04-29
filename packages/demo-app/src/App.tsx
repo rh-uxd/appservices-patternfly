@@ -50,12 +50,12 @@ export class App extends React.Component<{}, {
     this.state = {
       isDropdownOpen: false,
       isKebabDropdownOpen: false,
-      activeItem: 0,
-      
+      activeItem: 0
     };
    
   }
   
+
   onDropdownToggle = (isDropdownOpen: any) => {
     this.setState({
       isDropdownOpen
