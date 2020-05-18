@@ -1,6 +1,6 @@
 {
   "name": "@rh-uxd/integration-react",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Set of common react integration components",
   "repository": {
     "type": "git",
