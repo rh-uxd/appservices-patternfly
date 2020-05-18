@@ -1,6 +1,6 @@
 {
   "name": "@rh-uxd/integration-core",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Common javascript, css, and html code for redhat integration products",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
     "lint": "tslint -c ./tslint.json --project .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
   "author": "Red Hat",
   "license": "MIT",
@@ -23,8 +24,12 @@
     "axios": "0.19.2"
   },
   "devDependencies": {
+    "@types/jest" : "25.2.1",
     "copy-webpack-plugin": "^5.1.1",
+    "jest": "26.0.1",
     "rimraf": "^2.6.2",
+    "style-loader": "1.1.2",
+    "ts-jest": "25.5.1",
     "ts-loader": "^6.0.4",
     "typedoc": "0.16.10",
     "typescript": "^3.7.4",
