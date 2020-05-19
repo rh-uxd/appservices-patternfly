@@ -56,6 +56,22 @@ export const navigateToApp = (currentApp: CrossNavApp, nextApp: CrossNavApp) => 
       }
 }
 
+export const getSolutionExplorerServer = () => {
+  const currentURL: string = window.location.href;
+  const serverSubdomain: string = 'https://solution-explorer';
+  const regEx =  /^(https?:\/\/)([^\/]*)/;
+  const url = currentURL.match(regEx);
+
+  if (url != null) {
+  let urlArray = url[0].split('.').splice(0);
+    urlArray[0] = serverSubdomain;
+    let serverURL = urlArray.join('.')
+    return serverURL;
+  } else {
+      return null;
+  }
+}
+
 /**
  * Retrieves the list of integration apps available for cross navigation.
  * 
@@ -72,14 +88,14 @@ export const getAvailableApps = (url: string, config: AxiosRequestConfig = {}): 
       url: `${url}/services`
     }, ...options, ...config}
     axios.request(requestConfig).then(resp => {
-      debugger;
       console.log('Retrieved available apps from server.')
       const appEntries: CrossNavApp[] = [];
       Object.entries(resp.data).forEach((app: [string, any]) => {
         switch (app[0]) {
-          case '3scale':
-            appEntries.push({ id: app[0], name: IntegrationProductInfo["3scale"].prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
-            break;
+          /* case '3scale':
+             appEntries.push({ id: app[0], name: IntegrationProductInfo["3scale"].prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+             break;
+             */
           case 'amqonline':
             appEntries.push({ id: app[0], name: IntegrationProductInfo.amqonline.prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
             break;
