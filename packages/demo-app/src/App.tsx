@@ -29,7 +29,8 @@ import {
   ToolbarGroup,
   ToolbarItem
 } from '@patternfly/react-core';
-import {CrossNavHeader, CrossNavApp} from '@rh-uxd/integration-react';
+import {getAvailableApps, getSolutionExplorerServer, CrossNavAppKeys} from '@rh-uxd/integration-core';
+import {CrossNavHeader, CrossNavApp } from '@rh-uxd/integration-react';
 // make sure you've installed @patternfly/patternfly
 import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibility/accessibility';
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
@@ -44,13 +45,15 @@ export class App extends React.Component<{}, {
   isDropdownOpen: boolean,
   isKebabDropdownOpen: boolean,
   activeItem: number
+  appList: CrossNavApp[] | null
 }> {
   constructor(props: Readonly<{}>) {
     super(props);
     this.state = {
       isDropdownOpen: false,
       isKebabDropdownOpen: false,
-      activeItem: 0
+      activeItem: 0,
+      appList: null
     };
    
   }
@@ -168,12 +171,19 @@ export class App extends React.Component<{}, {
         </Toolbar>
       );
   
-      const apps: CrossNavApp[] = [
-        {id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3000', isHttp: true},
-        {id: 'second-demo-app', name: 'Second Demo App', rootUrl:'localhost:3001', isHttp: true}];        
+      if(!this.state.appList) {
+        getAvailableApps(
+          process.env.REACT_APP_RHMI_SERVER_URL ? process.env.REACT_APP_RHMI_SERVER_URL : getSolutionExplorerServer(),
+          undefined,
+          'localhost:3006',
+          ['3scale']
+        ).then(apps => {
+          this.setState({ appList: apps });
+        });
+      }     
       const Header = (
         <CrossNavHeader
-          apps={apps}
+          apps={this.state.appList}
           currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3000', isHttp: true}}
           logo={<Brand src={rhIntegrationLogo} alt="Red Hat Integration Logo"/>}
           toolbar={PageToolbar}
