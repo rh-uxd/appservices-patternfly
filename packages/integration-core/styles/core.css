@@ -178,3 +178,5 @@ img.pf-c-brand {
     height: 76px;
   }
 }
+
+@import url('~./components/LoadingPage.css');

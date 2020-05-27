@@ -90,6 +90,7 @@ export const getSolutionExplorerServer = () => {
  * @param localize - Optional function used to return a localized string for an application. Keys for the applications are (solution-explorer, amqonline, apicurito, fuse-managed, 3scale)
  * @param excludedApps - Optional list of applictation keys to exclude an app from the list.
  * @param solutionExplorerClientUrl - Optional url to access solution explorer client in enviornments where it's not the same as the server.
+ * @param isHttp - Indicates if http should be used when connecting to apps instead of https.
  * @param config - Optional Additional axios config needed for solution explorer server request.
  * @returns Returns the list of cross nav apps, if no apps are available null is returned.
  */
@@ -97,6 +98,7 @@ export const getAvailableApps = (url: string,
   localize: (appId: string)=>string = null,
   solutionExplorerClientUrl: string = null,
   excludedApps: string[] = null,
+  isHttp: boolean = false,
   config: AxiosRequestConfig = {}): Promise<CrossNavApp[]> => {
    
   return new Promise<CrossNavApp[]>((resolve) => {
@@ -110,7 +112,8 @@ export const getAvailableApps = (url: string,
       let appEntries: CrossNavApp[] = []
         appEntries.push({ id: 'solution-explorer',
             name: localize ? localize('solution-explorer') : 'Solution Explorer',
-            rootUrl: solutionExplorerClientUrl ? solutionExplorerClientUrl : url
+            rootUrl: solutionExplorerClientUrl ? solutionExplorerClientUrl : url,
+            isHttp: isHttp
           }
         );
       Object.entries(resp.data).forEach((app: [string, any]) => {
@@ -118,22 +121,26 @@ export const getAvailableApps = (url: string,
           case '3scale':
             appEntries.push({ id: app[0], 
               name: localize ? localize(app[0]) : IntegrationProductInfo['3scale'].prettyName, 
-              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
+              isHttp: isHttp });
             break;
           case 'amqonline':
             appEntries.push({ id: app[0],
               name: localize ? localize(app[0]) : IntegrationProductInfo.amqonline.prettyName,
-              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
+              isHttp: isHttp  });
             break;
           case 'apicurito':
             appEntries.push({ id: app[0],
               name: localize ? localize(app[0]) : IntegrationProductInfo.apicurito.prettyName,
-              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
+              isHttp: isHttp  });
             break;
           case 'fuse-managed':
             appEntries.push({ id: app[0],
               name: localize ? localize(app[0]) : IntegrationProductInfo['fuse-managed'].prettyName,
-              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
+              isHttp: isHttp  });
             break;
           default:
             break;
