@@ -25,7 +25,7 @@ export type CrossNavApp = {
 
 export type CrossNavAppState = {
     /** The current URL (including any parameters) that user navigated too. */
-    currentURL: string; 
+    currentURL: string;
     /** An object that contains any state data that is need to restore the current application state.  */
     stateData: any;
   }

@@ -29,7 +29,7 @@ import {
   ToolbarGroup,
   ToolbarItem
 } from '@patternfly/react-core';
-import {CrossNavHeader, CrossNavApp} from '@rh-uxd/integration-react';
+import {CrossNavHeader, CrossNavApp, LoadingPage} from '@rh-uxd/integration-react';
 // make sure you've installed @patternfly/patternfly
 import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibility/accessibility';
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
@@ -196,6 +196,7 @@ export class App extends React.Component<{}, {
   
       return (
         <React.Fragment>
+          <LoadingPage />
           <Page
             header={Header}
             sidebar={Sidebar}
