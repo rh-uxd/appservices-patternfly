@@ -1,10 +1,6 @@
 {
   "name": "@rh-uxd/integration-core",
-<<<<<<< HEAD
   "version": "1.0.2",
-=======
-  "version": "1.0.0",
->>>>>>> master
   "description": "Common javascript, css, and html code for redhat integration products",
   "repository": {
     "type": "git",
