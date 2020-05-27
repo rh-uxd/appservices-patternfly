@@ -1,15 +1,26 @@
 import React from 'react';
-import { Bullseye } from '@patternfly/react-core';
-import './LoadingPage.css';
+import { Bullseye, Spinner, Flex, FlexItem, FlexModifiers, Title } from '@patternfly/react-core';
 
-export class LoadingPage extends React.Component {
-    render () {
-        return (
-            <div className="app__loading-container">
-                <Bullseye>
-                    <p>Loading</p>
-                </Bullseye>
-            </div>
-        )
-    }
+export interface LoadingPageProps {
+  /** App name passed to Loading component */
+  appName?: string;
+}
+
+export const LoadingPage: React.FunctionComponent<LoadingPageProps> = (props) => {
+    return (
+        <div className="app__loading-container">
+            <Bullseye>
+                <Flex breakpointMods={[{modifier: FlexModifiers.column}]}>
+                    <FlexItem breakpointMods={[{modifier: FlexModifiers["spacer-xl"]}, {modifier: FlexModifiers["align-self-center"]}]}>
+                        <Spinner/>
+                    </FlexItem>
+                    <FlexItem>
+                        <Title headingLevel="h4" size="xl">
+                            Loading {props.appName}
+                        </Title>
+                    </FlexItem>
+                </Flex>
+            </Bullseye>
+        </div>
+    )
 }
