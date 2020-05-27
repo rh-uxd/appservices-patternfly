@@ -8,8 +8,8 @@ import { CrossNavContextSelector, CrossNavContextSelectorItem } from '../CrossNa
 
 export interface CrossNavHeaderProps extends PageHeaderProps {
   /** Application data for applications shown in the cross console navigation.  Note if a protocol is not specified to use when navigating for an app, it will default to https*/
-  apps: CrossNavApp[];
-  currentApp: CrossNavApp;
+  apps: CrossNavApp[] | null;
+  currentApp: CrossNavApp | null;
   onAppNavigate?: (app: CrossNavApp
     ) => void;
 }
@@ -69,7 +69,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
 
   render() {
 
-    const { apps = null as CrossNavApp[],
+    const { apps = null,
       currentApp,
       className = '',
       logo = null as React.ReactNode,
@@ -117,7 +117,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                   {logo}
                 </LogoComponent>
               )}
-              {apps.length > 0 ? <CrossNavContextSelector 
+              {apps && apps.length > 0 ? <CrossNavContextSelector 
                   toggleText = {currentApp.name} 
                   onToggle={this.onToggle}
                   onSelect={this.onSelect}

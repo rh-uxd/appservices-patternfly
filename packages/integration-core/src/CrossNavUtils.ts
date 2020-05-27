@@ -1,6 +1,17 @@
 import axios, {AxiosRequestConfig} from 'axios';
 import {IntegrationProductInfo} from './common/IntegrationProductInfo';
 
+// The minimum number of apps needed to display the cross console nav
+const MINMUM_NUMBER_OF_APPS = 2;
+
+export enum CrossNavAppKeys {
+  AMQ_ONLINE = 'amqonline',
+  APICURITO = 'apicurito',
+  FUSE_MANAGED = 'fuse-managed',
+  SOLUTION_EXPLORER = 'solution-explorer',
+  THREE_SCALE = '3scale'
+}
+
 export type CrossNavApp = {
     /** Uniquie identifer for application */
     id: string;
@@ -56,14 +67,37 @@ export const navigateToApp = (currentApp: CrossNavApp, nextApp: CrossNavApp) => 
       }
 }
 
+export const getSolutionExplorerServer = () => {
+  const currentURL: string = window.location.href;
+  const serverSubdomain: string = 'https://solution-explorer';
+  const regEx =  /^(https?:\/\/)([^\/]*)/;
+  const url = currentURL.match(regEx);
+
+  if (url != null) {
+  let urlArray = url[0].split('.').splice(0);
+    urlArray[0] = serverSubdomain;
+    let serverURL = urlArray.join('.')
+    return serverURL;
+  } else {
+      return null;
+  }
+}
+
 /**
- * Retrieves the list of integration apps available for cross navigation.
+ * Retrieves the list of integration apps available for cross navigation from solution explorer.
  * 
- * @param url - The URL to the server.
+ * @param url - The URL to the soulution explorer server.
+ * @param localize - Optional function used to return a localized string for an application. Keys for the applications are (solution-explorer, amqonline, apicurito, fuse-managed, 3scale)
+ * @param excludedApps - Optional list of applictation keys to exclude an app from the list.
+ * @param solutionExplorerClientUrl - Optional url to access solution explorer client in enviornments where it's not the same as the server.
+ * @param config - Optional Additional axios config needed for solution explorer server request.
  * @returns Returns the list of cross nav apps, if no apps are available null is returned.
  */
-export const getAvailableApps = (url: string, config: AxiosRequestConfig = {}): Promise<CrossNavApp[]> => {
-  let apps: CrossNavApp = null
+export const getAvailableApps = (url: string,  
+  localize: (appId: string)=>string = null,
+  solutionExplorerClientUrl: string = null,
+  excludedApps: string[] = null,
+  config: AxiosRequestConfig = {}): Promise<CrossNavApp[]> => {
    
   return new Promise<CrossNavApp[]>((resolve) => {
     const options: AxiosRequestConfig = {headers: { "Accept": "application/json" }};
@@ -72,29 +106,48 @@ export const getAvailableApps = (url: string, config: AxiosRequestConfig = {}): 
       url: `${url}/services`
     }, ...options, ...config}
     axios.request(requestConfig).then(resp => {
-      debugger;
       console.log('Retrieved available apps from server.')
-      const appEntries: CrossNavApp[] = [];
+      let appEntries: CrossNavApp[] = []
+        appEntries.push({ id: 'solution-explorer',
+            name: localize ? localize('solution-explorer') : 'Solution Explorer',
+            rootUrl: solutionExplorerClientUrl ? solutionExplorerClientUrl : url
+          }
+        );
       Object.entries(resp.data).forEach((app: [string, any]) => {
         switch (app[0]) {
           case '3scale':
-            appEntries.push({ id: app[0], name: IntegrationProductInfo["3scale"].prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            appEntries.push({ id: app[0], 
+              name: localize ? localize(app[0]) : IntegrationProductInfo['3scale'].prettyName, 
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
             break;
           case 'amqonline':
-            appEntries.push({ id: app[0], name: IntegrationProductInfo.amqonline.prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            appEntries.push({ id: app[0],
+              name: localize ? localize(app[0]) : IntegrationProductInfo.amqonline.prettyName,
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
             break;
           case 'apicurito':
-            appEntries.push({ id: app[0], name: IntegrationProductInfo.apicurito.prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            appEntries.push({ id: app[0],
+              name: localize ? localize(app[0]) : IntegrationProductInfo.apicurito.prettyName,
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
             break;
           case 'fuse-managed':
-            appEntries.push({ id: app[0], name: IntegrationProductInfo["fuse-managed"].prettyName, rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
+            appEntries.push({ id: app[0],
+              name: localize ? localize(app[0]) : IntegrationProductInfo['fuse-managed'].prettyName,
+              rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, '') });
             break;
           default:
             break;
         }
       });
-      resolve(appEntries);
-    }).catch((reason: any) => {
+       // Return the list of apps sorted alphabetically with exclusions removed, 
+       // as long as we have the minmum number of apps including solution explorer (3)
+      appEntries = excludedApps != null ? appEntries.filter((app: CrossNavApp) => !(excludedApps).includes(app.id)) : appEntries;
+      resolve(appEntries.length > MINMUM_NUMBER_OF_APPS ? appEntries.sort((app1, app2) => {
+        if(app1.name < app2.name) { return -1; }
+        if(app1.name > app2.name) { return 1; }
+        return 0;
+    }) : []);
+    }).catch(() => {
       console.log('Unable to retrieve list of available apps.')
       resolve([]);
     });

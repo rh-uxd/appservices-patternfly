@@ -27,8 +27,8 @@
     "react-dom": "16.13.0"
   },
   "devDependencies": {
-    "@types/react": "16.9.23",
-    "@types/react-dom": "16.9.5",
+    "@types/react": "16.9.34",
+    "@types/react-dom": "16.9.7",
     "css-loader": "3.4.1",
     "path": "0.12.7",
     "raw-loader": "4.0.0",

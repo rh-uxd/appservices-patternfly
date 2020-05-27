@@ -48,8 +48,8 @@ img.pf-c-brand {
 }
 
 .pf-c-context-selector__toggle::before {
-  border-top: 0 !important;
   border-bottom: 0 !important;
+  border-top-color: var(--pf-global--BorderColor--200) !important;
   border-right-color: var(--pf-global--BorderColor--200) !important;
   border-left-color: var(--pf-global--BorderColor--200) !important;
   border-bottom-width: 0px !important;
@@ -109,6 +109,10 @@ img.pf-c-brand {
   .pf-c-context-selector__toggle {
     width: initial;
     background-color: transparent;
+  }
+
+  .pf-c-context-selector__toggle::before {
+    border-top: 0 !important;
   }
 
   .pf-c-page__header-tools {
