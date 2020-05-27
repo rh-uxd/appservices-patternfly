@@ -2449,6 +2449,13 @@
   resolved "https://registry.yarnpkg.com/@rh-uxd/integration-core/-/integration-core-0.1.1.tgz#59d98d0ea169e955fa09a2027759e0c96bf33ea7"
   integrity sha512-IAOgEBtSq+lrzOY9AeC2pISAt6Car+4Qjw9LPGhs90OlvsyGxGeafJLfR/gSfImUEuSlLoOLbo/sUi8tpMFXOg==
 
+"@rh-uxd/integration-core@^0.1.5":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@rh-uxd/integration-core/-/integration-core-0.1.8.tgz#3e99c2d87fbd542f317eba02e9e199f9dacd3454"
+  integrity sha512-VyjAwY5/duhxGWFgpx2SCYyUsxwAQuykmNq6HnxAHjBUqyerwqsg3msjYE8NlzrGi9J3RtvvbV1QNcOzDBN6HA==
+  dependencies:
+    axios "0.19.2"
+
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
