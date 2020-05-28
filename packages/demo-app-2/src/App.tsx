@@ -56,12 +56,6 @@ export class App extends React.Component<{}, {
     };
    
   }
-
-  // loginTimeout = () => {
-  //   setTimeout(function () {
-  //     this.setState({isLoading: false});
-  //   }, 2000);
-  // };
   
   onDropdownToggle = (isDropdownOpen: any) => {
     this.setState({
