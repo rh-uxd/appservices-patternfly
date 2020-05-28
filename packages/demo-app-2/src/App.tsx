@@ -42,7 +42,8 @@ import rhIntegrationLogo from './Logo-Red_Hat-Integration-A-Reverse-RGB.png';
 export class App extends React.Component<{}, {
   isDropdownOpen: boolean,
   isKebabDropdownOpen: boolean,
-  activeItem: number
+  activeItem: number,
+  isLoading: boolean
 }> {
   constructor(props: Readonly<{}>) {
     super(props);
@@ -50,6 +51,7 @@ export class App extends React.Component<{}, {
       isDropdownOpen: false,
       isKebabDropdownOpen: false,
       activeItem: 0,
+      isLoading: true
       
     };
    
@@ -84,7 +86,7 @@ export class App extends React.Component<{}, {
         activeItem: result.itemId
       });
     };
-  
+
   render() {
       const { isDropdownOpen, isKebabDropdownOpen, activeItem } = this.state;
   
@@ -193,10 +195,10 @@ export class App extends React.Component<{}, {
           </BreadcrumbItem>
         </Breadcrumb>
       );
-  
+
       return (
-        <React.Fragment>
-          <LoadingPage />
+        <div style={{position: 'relative'}}>
+          { this.state.isLoading && <LoadingPage appName="Demo App 2"/>}
           <Page
             header={Header}
             sidebar={Sidebar}
@@ -227,7 +229,7 @@ export class App extends React.Component<{}, {
               </Gallery>
             </PageSection>
           </Page>
-        </React.Fragment>
+        </div>
       );
     }
 }
