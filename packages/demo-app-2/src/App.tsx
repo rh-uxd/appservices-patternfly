@@ -56,6 +56,12 @@ export class App extends React.Component<{}, {
     };
    
   }
+
+  // loginTimeout = () => {
+  //   setTimeout(function () {
+  //     this.setState({isLoading: false});
+  //   }, 2000);
+  // };
   
   onDropdownToggle = (isDropdownOpen: any) => {
     this.setState({
@@ -89,6 +95,16 @@ export class App extends React.Component<{}, {
 
   render() {
       const { isDropdownOpen, isKebabDropdownOpen, activeItem } = this.state;
+
+      const delayState = () => {
+        setTimeout(() => {
+            this.setState({
+              isLoading: false
+          })
+        }, 2000);
+      };
+    
+      delayState();
   
       const PageNav = (
         <Nav onSelect={this.onNavSelect} aria-label="Nav" theme="dark">
