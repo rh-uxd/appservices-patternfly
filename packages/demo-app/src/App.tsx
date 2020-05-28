@@ -30,7 +30,7 @@ import {
   ToolbarItem
 } from '@patternfly/react-core';
 import {getAvailableApps, getSolutionExplorerServer, CrossNavAppKeys} from '@rh-uxd/integration-core';
-import {CrossNavHeader, CrossNavApp } from '@rh-uxd/integration-react';
+import {CrossNavHeader, CrossNavApp, LoadingPage} from '@rh-uxd/integration-react';
 // make sure you've installed @patternfly/patternfly
 import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibility/accessibility';
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
@@ -45,7 +45,8 @@ export class App extends React.Component<{}, {
   isDropdownOpen: boolean,
   isKebabDropdownOpen: boolean,
   activeItem: number
-  appList: CrossNavApp[] | null
+  appList: CrossNavApp[] | null,
+  isLoading: boolean
 }> {
   constructor(props: Readonly<{}>) {
     super(props);
@@ -53,7 +54,8 @@ export class App extends React.Component<{}, {
       isDropdownOpen: false,
       isKebabDropdownOpen: false,
       activeItem: 0,
-      appList: null
+      appList: null,
+      isLoading: true
     };
    
   }
@@ -90,7 +92,7 @@ export class App extends React.Component<{}, {
     };
   
   render() {
-      const { isDropdownOpen, isKebabDropdownOpen, activeItem } = this.state;
+      const { isDropdownOpen, isKebabDropdownOpen, activeItem, isLoading } = this.state;
   
       const PageNav = (
         <Nav onSelect={this.onNavSelect} aria-label="Nav" theme="dark">
@@ -205,9 +207,20 @@ export class App extends React.Component<{}, {
           </BreadcrumbItem>
         </Breadcrumb>
       );
+
+      const delayState = () => {
+        setTimeout(() => {
+            this.setState({
+              isLoading: false
+          })
+        }, 2000);
+      };
+    
+      delayState();
   
       return (
-        <React.Fragment>
+        <div style={{position: 'relative'}}>
+          { this.state.isLoading && <LoadingPage appName="Demo App 1"/>}
           <Page
             header={Header}
             sidebar={Sidebar}
@@ -216,6 +229,7 @@ export class App extends React.Component<{}, {
             breadcrumb={PageBreadcrumb}
             mainContainerId={pageId}
             className = 'app'
+            style={{ height: '100vh' }}
           >
             <PageSection variant={PageSectionVariants.light}>
               <TextContent>
@@ -238,7 +252,7 @@ export class App extends React.Component<{}, {
               </Gallery>
             </PageSection>
           </Page>
-        </React.Fragment>
+        </div>
       );
     }
 }

@@ -223,6 +223,7 @@ export class App extends React.Component<{}, {
             breadcrumb={PageBreadcrumb}
             mainContainerId={pageId}
             className = 'app'
+            style={{ height: '100vh' }}
           >
             <PageSection variant={PageSectionVariants.light}>
               <TextContent>

@@ -2467,27 +2467,14 @@
     emotion-server "^9.2.9"
 
 "@patternfly/react-tokens@^2.7.14":
-<<<<<<< HEAD
-  version "2.8.4"
-  resolved "https://registry.yarnpkg.com/@patternfly/react-tokens/-/react-tokens-2.8.4.tgz#20cb17f2196a25d9cc6ae4cc0e79686ea9bf0bbd"
-  integrity sha512-GlLyutls0bG39Nwl/sv2FUkicwyRNrXQFso+e7Y4470+VOUtSsVSdQz+rTjgPxQ38olKPsSZdtEjqN9o2PbDiw==
+  version "2.8.13"
+  resolved "https://registry.yarnpkg.com/@patternfly/react-tokens/-/react-tokens-2.8.13.tgz#dbaa1b347253c9d5f72b65ea87f4656b12b265b8"
+  integrity sha512-k3r58ShieAiqHfn+tyMwhrk+/r1VP/ABy7S5no7mzgs1cOP9bJzCRk08X0KmEDzsZqHqTBM8dsffYlPT2OGCcQ==
 
 "@patternfly/react-tokens@^2.7.20":
   version "2.8.14"
   resolved "https://registry.yarnpkg.com/@patternfly/react-tokens/-/react-tokens-2.8.14.tgz#30b8bd90763fd2a443a875dee4d1d948928f32a1"
   integrity sha512-pha0XyZ3ZiXuQoKstuFsiEHARFQKUFsS6WxVuRSEyNbGTToRNJkKR9cW5swzHgXK6Fuw5EA2XFHLuu8osj52KA==
-=======
-  version "2.8.13"
-  resolved "https://registry.yarnpkg.com/@patternfly/react-tokens/-/react-tokens-2.8.13.tgz#dbaa1b347253c9d5f72b65ea87f4656b12b265b8"
-  integrity sha512-k3r58ShieAiqHfn+tyMwhrk+/r1VP/ABy7S5no7mzgs1cOP9bJzCRk08X0KmEDzsZqHqTBM8dsffYlPT2OGCcQ==
-
-"@rh-uxd/integration-core@^0.1.5":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@rh-uxd/integration-core/-/integration-core-0.1.8.tgz#3e99c2d87fbd542f317eba02e9e199f9dacd3454"
-  integrity sha512-VyjAwY5/duhxGWFgpx2SCYyUsxwAQuykmNq6HnxAHjBUqyerwqsg3msjYE8NlzrGi9J3RtvvbV1QNcOzDBN6HA==
-  dependencies:
-    axios "0.19.2"
->>>>>>> master
 
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.3"
