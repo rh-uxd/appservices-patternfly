@@ -178,7 +178,8 @@ export class App extends React.Component<{}, {
           process.env.REACT_APP_RHMI_SERVER_URL ? process.env.REACT_APP_RHMI_SERVER_URL : getSolutionExplorerServer(),
           undefined,
           'localhost:3006',
-          ['3scale']
+          ['3scale'],
+          true
         ).then(apps => {
           this.setState({ appList: apps });
         });
@@ -186,7 +187,7 @@ export class App extends React.Component<{}, {
       const Header = (
         <CrossNavHeader
           apps={this.state.appList}
-          currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3000', isHttp: true}}
+          currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3001', isHttp: true}}
           logo={<Brand src={rhIntegrationLogo} alt="Red Hat Integration Logo"/>}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}

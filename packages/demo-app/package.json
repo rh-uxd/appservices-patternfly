@@ -20,7 +20,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start:demo": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "start:demo": "SKIP_PREFLIGHT_CHECK=true PORT=3001 react-scripts start",
     "build:demo": "react-scripts build",
     "test:demo": "react-scripts test",
     "eject": "react-scripts eject"
