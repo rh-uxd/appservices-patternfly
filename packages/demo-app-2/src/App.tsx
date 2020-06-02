@@ -89,6 +89,16 @@ export class App extends React.Component<{}, {
 
   render() {
       const { isDropdownOpen, isKebabDropdownOpen, activeItem } = this.state;
+
+      const delayState = () => {
+        setTimeout(() => {
+            this.setState({
+              isLoading: false
+          })
+        }, 2000);
+      };
+    
+      delayState();
   
       const PageNav = (
         <Nav onSelect={this.onNavSelect} aria-label="Nav" theme="dark">
@@ -207,6 +217,7 @@ export class App extends React.Component<{}, {
             breadcrumb={PageBreadcrumb}
             mainContainerId={pageId}
             className = 'app'
+            style={{ height: '100vh' }}
           >
             <PageSection variant={PageSectionVariants.light}>
               <TextContent>
