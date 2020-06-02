@@ -127,7 +127,7 @@ img.pf-c-brand {
 
   .pf-c-page__header-brand-link {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     grid-column: 2 !important;
     grid-row: 1;
   }

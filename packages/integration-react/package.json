@@ -1,6 +1,6 @@
 {
   "name": "@rh-uxd/integration-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Set of common react integration components",
   "repository": {
     "type": "git",
@@ -22,22 +22,22 @@
   "dependencies": {
     "@patternfly/react-core": "3.131.4",
     "@patternfly/react-icons": "3.14.30",
-    "@rh-uxd/integration-core": "1.0.2",
-    "react": "16.13.0",
-    "react-dom": "16.13.0"
+    "@rh-uxd/integration-core": "1.0.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "@types/react": "16.9.34",
-    "@types/react-dom": "16.9.7",
+    "@types/react": "16.9.35",
+    "@types/react-dom": "16.9.8",
     "css-loader": "3.4.1",
     "path": "0.12.7",
     "raw-loader": "4.0.0",
     "rimraf": "3.0.0",
     "svg-url-loader": "3.0.3",
     "style-loader": "1.1.2",
-    "ts-loader": "6.2.1",
-    "typedoc": "0.16.10",
-    "typescript": "3.7.4",
+    "ts-loader": "7.0.5",
+    "typedoc": "0.17.7",
+    "typescript": "3.9.3",
     "url-loader": "3.0.0",
     "watch": "1.0.2",
     "webpack": "4.41.5",

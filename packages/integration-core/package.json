@@ -1,6 +1,6 @@
 {
   "name": "@rh-uxd/integration-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Common javascript, css, and html code for redhat integration products",
   "repository": {
     "type": "git",
@@ -24,15 +24,15 @@
     "axios": "0.19.2"
   },
   "devDependencies": {
-    "@types/jest" : "25.2.1",
-    "copy-webpack-plugin": "^5.1.1",
+    "@types/jest" : "25.2.3",
+    "copy-webpack-plugin": "5.1.1",
     "jest": "26.0.1",
-    "rimraf": "^2.6.2",
+    "rimraf": "2.6.2",
     "style-loader": "1.1.2",
-    "ts-jest": "25.5.1",
+    "ts-jest": "26.1.0",
     "ts-loader": "^6.0.4",
-    "typedoc": "0.16.10",
-    "typescript": "^3.7.4",
+    "typedoc": "0.17.7",
+    "typescript": "3.9.3",
     "webpack": "^4.25.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
