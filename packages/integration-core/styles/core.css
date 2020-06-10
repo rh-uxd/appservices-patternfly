@@ -177,6 +177,18 @@ img.pf-c-brand {
   .pf-c-page__header-brand-toggle {
     height: 76px;
   }
+
+  .pf-c-page__header.pf-m-no-crossconsole {
+    grid-template-rows: minmax(76px, auto);
+  }
+
+  .pf-c-page__header.pf-m-no-crossconsole .pf-c-page__header-tools {
+    grid-row: 1;
+  }
+
+  .pf-c-page__header.pf-m-no-crossconsole .pf-c-page__header-brand-toggle {
+    grid-row: 1;
+  }
 }
 
 .app__loading-container {
