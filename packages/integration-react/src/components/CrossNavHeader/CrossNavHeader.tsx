@@ -95,9 +95,10 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
         {({ isManagedSidebar, onNavToggle: managedOnNavToggle, isNavOpen: managedIsNavOpen }: PageHeaderProps) => {
           const navToggle = isManagedSidebar ? managedOnNavToggle : onNavToggle;
           const navOpen = isManagedSidebar ? managedIsNavOpen : isNavOpen;
+          const isCrossConsole = apps && apps.length > 0 && true;
 
           return (
-            <header role="banner" className={`${css(styles.pageHeader, className)} ${!showNavToggle ? 'pf-m-no-toggle' : ''} `} {...props}>
+            <header role="banner" className={`${css(styles.pageHeader, className)} ${!showNavToggle ? 'pf-m-no-toggle' : ''} ${!isCrossConsole && `pf-m-no-crossconsole`} `} {...props}>
               {showNavToggle && (
                 <div className={css(styles.pageHeaderBrandToggle)}>
                   <Button
@@ -117,7 +118,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                   {logo}
                 </LogoComponent>
               )}
-              {apps && apps.length > 0 ? <CrossNavContextSelector 
+              {isCrossConsole ? <CrossNavContextSelector 
                   toggleText = {currentApp.name} 
                   onToggle={this.onToggle}
                   onSelect={this.onSelect}

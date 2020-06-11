@@ -192,7 +192,6 @@ export class App extends React.Component<{}, {
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
           showNavToggle
-          className="pf-m-no-crossconsole"
         />
       );
       const Sidebar = <PageSidebar nav={PageNav} theme="dark" />;
