@@ -1,8 +1,8 @@
-# Patternfly Application Services Component Library #
+# Application Services PatternFly Component Library #
 
 [![rh-uxd](https://circleci.com/gh/rh-uxd/integration.svg?style=shield)](https://app.circleci.com/github/rh-uxd/integration/pipelines)
 
-Welcome to Patternflys Application Services componet library for the use with application service products.  This library contains a set of common components that are used across many of the application services product line.
+Welcome to Application Services componet library Patternfly for the use with application service products.  This library contains a set of common components that are used across many of the application services product line.
 
 
 ## Requirements
