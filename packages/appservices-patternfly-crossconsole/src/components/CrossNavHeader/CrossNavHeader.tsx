@@ -3,7 +3,7 @@ import styles from '@patternfly/react-styles/css/components/Page/page';
 import { css } from '@patternfly/react-styles';
 import { BarsIcon } from '@patternfly/react-icons';
 import { Button, ButtonVariant, PageHeaderProps, PageContextConsumer } from '@patternfly/react-core';
-import { CrossNavApp, CrossNavAppState, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/integration-core';
+import { CrossNavApp, CrossNavAppState, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/appservices-patternfly-core';
 import { CrossNavContextSelector, CrossNavContextSelectorItem } from '../CrossNavContextSelector';
 
 export interface CrossNavHeaderProps extends PageHeaderProps {

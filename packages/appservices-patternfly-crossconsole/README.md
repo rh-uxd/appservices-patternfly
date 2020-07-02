@@ -7,11 +7,11 @@ This package provides react componets for use with Redhat integration products. 
 
 ## Installation
 
-`npm install @rh-uxd/integration-react --save`
+`npm install @rh-uxd/appservices-patternfly-crossconsole --save`
 
 or 
 
-`yarn add @rh-uxd/integration-react`
+`yarn add @rh-uxd/appservices-patternfly-crossconsole`
 
 
 ## Building the library

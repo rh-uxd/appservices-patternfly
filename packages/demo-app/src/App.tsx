@@ -29,15 +29,15 @@ import {
   ToolbarGroup,
   ToolbarItem
 } from '@patternfly/react-core';
-import {getAvailableApps, getSolutionExplorerServer, CrossNavAppKeys} from '@rh-uxd/integration-core';
-import {CrossNavHeader, CrossNavApp, LoadingPage} from '@rh-uxd/integration-react';
+import {getAvailableApps, getSolutionExplorerServer, CrossNavAppKeys} from '@rh-uxd/appservices-patternfly-core';
+import {CrossNavHeader, CrossNavApp, LoadingPage} from '@rh-uxd/appservices-patternfly-crossconsole';
 // make sure you've installed @patternfly/patternfly
 import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibility/accessibility';
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
 import { css } from '@patternfly/react-styles';
 import { BellIcon, CogIcon } from '@patternfly/react-icons';
 import imgAvatar from './logo.svg';
-import rhIntegrationLogo from './Logo-Red_Hat-Integration-A-Reverse-RGB.png';
+import rhIntegrationLogo from './Logo-Red_Hat-Application Services PatternFly-A-Reverse-RGB.png';
 
 //import './App.css'
 
@@ -188,7 +188,7 @@ export class App extends React.Component<{}, {
         <CrossNavHeader
           apps={this.state.appList}
           currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3001', isHttp: true}}
-          logo={<Brand src={rhIntegrationLogo} alt="Red Hat Integration Logo"/>}
+          logo={<Brand src={rhIntegrationLogo} alt="Red Hat Application Services PatternFly Logo"/>}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
           showNavToggle

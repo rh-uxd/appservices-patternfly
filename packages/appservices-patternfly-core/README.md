@@ -7,11 +7,11 @@ This package provides framework independent CSS, HTML, and JS files for Redhat i
 
 ## Installation
 
-`npm install @rh-uxd/integration-core --save`
+`npm install @rh-uxd/appservices-patternfly-core --save`
 
 or 
 
-`yarn add @rh-uxd/integration-core`
+`yarn add @rh-uxd/appservices-patternfly-core`
 
 
 ## Using the library
@@ -20,7 +20,7 @@ Once install developers should add the CSS to their index file JS or HTML.
 The following is an example on how to import the HTML using webpack.
 
 ```TS
-import '@rh-uxd/integration-core/dist/styles/core.css';
+import '@rh-uxd/appservices-patternfly-core/dist/styles/core.css';
 ...
 
 ```
@@ -29,8 +29,8 @@ JavaScript utilites can be imported and used as needed.  For example if you woul
 like to use the Cross console navigation js functions you can do the following
 
 ```TS
-import '@rh-uxd/integration-core/dist/styles/core.css';
-import { CrossNavApp, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/integration-core';
+import '@rh-uxd/appservices-patternfly-core/dist/styles/core.css';
+import { CrossNavApp, getAppNavState, setAppNavState, navigateToApp } from '@rh-uxd/appservices-patternfly-core';
 
 ...
 const apps: CrossNavApp[] = [

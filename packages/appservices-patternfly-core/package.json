@@ -1,10 +1,10 @@
 {
-  "name": "@rh-uxd/integration-core",
+  "name": "@rh-uxd/appservices-patternfly-core",
   "version": "1.0.3",
-  "description": "Common javascript, css, and html code for redhat integration products",
+  "description": "Common javascript, css, and html code for Application Services PatternFly",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rh-uxd/integration"
+    "url": "https://github.com/rh-uxd/appservices-patternfly"
   },
   "main": "dist/js/index.js",
   "module": "dist/esm/index.js",
