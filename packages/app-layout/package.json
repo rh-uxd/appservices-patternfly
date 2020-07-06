@@ -1,0 +1,41 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "peerDependencies": {
+    "@patternfly/react-core": "^3.77.2",
+    "@patternfly/react-icons": "^3.10.15",
+    "@patternfly/react-styles": "^3.5.7",
+    "react": ">=16",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
+  },
+  "name": "app-layout",
+  "author": "Riccardo Forina",
+  "module": "dist/app-layout.esm.js",
+  "devDependencies": {
+    "tsdx": "^0.13.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/../__jest_mocks__/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/../__jest_mocks__/fileMock.js"
+    },
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  }
+}

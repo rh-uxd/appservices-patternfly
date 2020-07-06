@@ -6,11 +6,6 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/@patternfly/react-core",
-      "**/@patternfly/react-core/**",
-      "**/patternfly"
     ]
   },
   "scripts": {
@@ -18,11 +13,68 @@
     "build": "lerna run build",
     "buildDoc": "lerna run buildDoc",
     "start:dev": "lerna run start:dev",
-    "start:demo": "lerna run start:demo",
-    "start:demo2": "PORT=3006 lerna run start:demo"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "lerna": "3.20.2"
+    "@babel/core": "^7.10.4",
+    "@patternfly/react-core": "^4.18.5",
+    "@patternfly/react-icons": "^4.3.5",
+    "@patternfly/react-styles": "^4.3.4",
+    "@storybook/react": "^6.0.0-beta.39",
+    "@storybook/addon-actions": "^6.0.0-beta.39",
+    "@storybook/addon-knobs": "^6.0.0-beta.39",
+    "@testing-library/jest-dom": "^4.1.1",
+    "@testing-library/react": "^9.3.0",
+    "@types/jest": "25.2.3",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router": "^5.1.1",
+    "@types/react-router-dom": "^5.1.0",
+    "babel-loader": "^8.1.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "lerna": "3.20.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "tsdx": "^0.13.2",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.6"
   },
-  "name": "rh-uxd-integration"
+  "name": "rh-uxd-integration",
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "ecmaFeatures": {
+        "modules": true
+      },
+      "jsx": true,
+      "useJSXTextNode": true,
+      "sourceType": "module"
+    },
+    "extends": [
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "react-hooks"
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    }
+  },
+  "resolutions": {
+    "@types/react": "^16.9.35"
+  }
 }
