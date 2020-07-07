@@ -37,7 +37,7 @@ import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacin
 import { css } from '@patternfly/react-styles';
 import { BellIcon, CogIcon } from '@patternfly/react-icons';
 import imgAvatar from './logo.svg';
-import rhIntegrationLogo from './Logo-Red_Hat-Application Services PatternFly-A-Reverse-RGB.png';
+import rhIntegrationLogo from './Logo-Red_Hat-Managed_Integration-A-Reverse-RGB.png';
 
 //import './App.css'
 

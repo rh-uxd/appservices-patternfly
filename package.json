@@ -5,7 +5,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "packages/examples/*"
     ],
     "nohoist": [
       "**/@patternfly/react-core",
@@ -24,5 +25,5 @@
   "devDependencies": {
     "lerna": "3.20.2"
   },
-  "name": "rh-uxd-integration"
+  "name": "appservices-patternfly"
 }
