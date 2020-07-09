@@ -1,2 +1,2 @@
 export * from './CrossNavUtils';
-export * from './common/IntegrationProductInfo';
+export * from './common/ServicesInfo';
