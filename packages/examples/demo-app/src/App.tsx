@@ -29,20 +29,23 @@ import {
   ToolbarGroup,
   ToolbarItem
 } from '@patternfly/react-core';
-import {CrossNavHeader, CrossNavApp, LoadingPage} from '@rh-uxd/integration-react';
+import {getAvailableApps, getSolutionExplorerServer, CrossNavAppKeys} from '@rh-uxd/appservices-patternfly-core';
+import {CrossNavHeader, CrossNavApp, LoadingPage} from '@rh-uxd/appservices-patternfly-crossconsole';
 // make sure you've installed @patternfly/patternfly
 import accessibleStyles from '@patternfly/react-styles/css/utilities/Accessibility/accessibility';
 import spacingStyles from '@patternfly/react-styles/css/utilities/Spacing/spacing';
 import { css } from '@patternfly/react-styles';
 import { BellIcon, CogIcon } from '@patternfly/react-icons';
 import imgAvatar from './logo.svg';
-import rhIntegrationLogo from './Logo-Red_Hat-Integration-A-Reverse-RGB.png';
+import rhIntegrationLogo from './Logo-Red_Hat-Managed_Integration-A-Reverse-RGB.png';
+
 //import './App.css'
 
 export class App extends React.Component<{}, {
   isDropdownOpen: boolean,
   isKebabDropdownOpen: boolean,
-  activeItem: number,
+  activeItem: number
+  appList: CrossNavApp[] | null,
   isLoading: boolean
 }> {
   constructor(props: Readonly<{}>) {
@@ -51,12 +54,13 @@ export class App extends React.Component<{}, {
       isDropdownOpen: false,
       isKebabDropdownOpen: false,
       activeItem: 0,
+      appList: null,
       isLoading: true
-      
     };
    
   }
   
+
   onDropdownToggle = (isDropdownOpen: any) => {
     this.setState({
       isDropdownOpen
@@ -86,19 +90,9 @@ export class App extends React.Component<{}, {
         activeItem: result.itemId
       });
     };
-
+  
   render() {
-      const { isDropdownOpen, isKebabDropdownOpen, activeItem } = this.state;
-
-      const delayState = () => {
-        setTimeout(() => {
-            this.setState({
-              isLoading: false
-          })
-        }, 2000);
-      };
-    
-      delayState();
+      const { isDropdownOpen, isKebabDropdownOpen, activeItem, isLoading } = this.state;
   
       const PageNav = (
         <Nav onSelect={this.onNavSelect} aria-label="Nav" theme="dark">
@@ -179,16 +173,25 @@ export class App extends React.Component<{}, {
         </Toolbar>
       );
   
-      const apps: CrossNavApp[] = [
-        {id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3000', isHttp: true},
-        {id: 'second-demo-app', name: 'Second Demo App', rootUrl:'localhost:3001', isHttp: true}];        
+      if(!this.state.appList) {
+        getAvailableApps(
+          process.env.REACT_APP_RHMI_SERVER_URL ? process.env.REACT_APP_RHMI_SERVER_URL : getSolutionExplorerServer(),
+          undefined,
+          'localhost:3006',
+          ['3scale'],
+          true
+        ).then(apps => {
+          this.setState({ appList: apps });
+        });
+      }     
       const Header = (
         <CrossNavHeader
-          apps={apps}
-          currentApp={{id: 'second-demo-app', name: 'Second Demo App', rootUrl:'localhost:3001', isHttp: true}}
-          logo={<Brand src={rhIntegrationLogo} alt="Red Hat Integration Logo" />}
+          apps={this.state.appList}
+          currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3001', isHttp: true}}
+          logo={<Brand src={rhIntegrationLogo} alt="Red Hat Application Services PatternFly Logo"/>}
           toolbar={PageToolbar}
           avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
+          showNavToggle
         />
       );
       const Sidebar = <PageSidebar nav={PageNav} theme="dark" />;
@@ -198,7 +201,7 @@ export class App extends React.Component<{}, {
       const PageBreadcrumb = (
         <Breadcrumb>
           <BreadcrumbItem>Section home</BreadcrumbItem>
-          <BreadcrumbItem to="#">Second Demo App</BreadcrumbItem>
+          <BreadcrumbItem to="#">First Demo</BreadcrumbItem>
           <BreadcrumbItem to="#">Main Section</BreadcrumbItem>
           <BreadcrumbItem to="#" isActive>
             Section landing
@@ -206,9 +209,19 @@ export class App extends React.Component<{}, {
         </Breadcrumb>
       );
 
+      const delayState = () => {
+        setTimeout(() => {
+            this.setState({
+              isLoading: false
+          })
+        }, 2000);
+      };
+    
+      delayState();
+  
       return (
         <div style={{position: 'relative'}}>
-          { this.state.isLoading && <LoadingPage appName="Demo App 2"/>}
+          { this.state.isLoading && <LoadingPage appName="Demo App 1"/>}
           <Page
             header={Header}
             sidebar={Sidebar}
@@ -233,7 +246,7 @@ export class App extends React.Component<{}, {
                 {Array.apply(0, Array(10)).map((x, i) => (
                   <GalleryItem key={i}>
                     <Card>
-                      <CardBody>This is a card for the second demo app</CardBody>
+                      <CardBody>This is a card from Demo App 1</CardBody>
                     </Card>
                   </GalleryItem>
                 ))}

@@ -1,11 +1,12 @@
 {
-  "description": "Redhat UXD Integration Components",
-  "repository": "https://github.com/rh-uxd/integration.git",
+  "description": "Redhat UXD Application Services PatternFly Components",
+  "repository": "https://github.com/rh-uxd/appservices-patternfly.git",
   "license": "MIT",
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "packages/examples/*"
     ],
     "nohoist": [
       "**/@patternfly/react-core",
@@ -24,5 +25,5 @@
   "devDependencies": {
     "lerna": "3.20.2"
   },
-  "name": "rh-uxd-integration"
+  "name": "appservices-patternfly"
 }

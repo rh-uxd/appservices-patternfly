@@ -1,5 +1,5 @@
 import axios, {AxiosRequestConfig} from 'axios';
-import {IntegrationProductInfo} from './common/IntegrationProductInfo';
+import {ServicesInfo} from './common/ServicesInfo';
 
 // The minimum number of apps needed to display the cross console nav
 const MINMUM_NUMBER_OF_APPS = 2;
@@ -120,25 +120,25 @@ export const getAvailableApps = (url: string,
         switch (app[0]) {
           case '3scale':
             appEntries.push({ id: app[0], 
-              name: localize ? localize(app[0]) : IntegrationProductInfo['3scale'].prettyName, 
+              name: localize ? localize(app[0]) : ServicesInfo['3scale'].prettyName, 
               rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
               isHttp: isHttp });
             break;
           case 'amqonline':
             appEntries.push({ id: app[0],
-              name: localize ? localize(app[0]) : IntegrationProductInfo.amqonline.prettyName,
+              name: localize ? localize(app[0]) : ServicesInfo.amqonline.prettyName,
               rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
               isHttp: isHttp  });
             break;
           case 'apicurito':
             appEntries.push({ id: app[0],
-              name: localize ? localize(app[0]) : IntegrationProductInfo.apicurito.prettyName,
+              name: localize ? localize(app[0]) : ServicesInfo.apicurito.prettyName,
               rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
               isHttp: isHttp  });
             break;
           case 'fuse-managed':
             appEntries.push({ id: app[0],
-              name: localize ? localize(app[0]) : IntegrationProductInfo['fuse-managed'].prettyName,
+              name: localize ? localize(app[0]) : ServicesInfo['fuse-managed'].prettyName,
               rootUrl: app[1].Host.replace(/(^\w+:|^)\/\//, ''),
               isHttp: isHttp  });
             break;
