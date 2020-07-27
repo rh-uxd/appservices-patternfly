@@ -18,6 +18,12 @@ export const ServicesInfo = {
     primaryTask: 'Design APIs',
     description: 'Quickly design your own REST APIs without writing any code.'
   },
+   'apicurio-registry': {
+    prettyName: 'Service Registry',
+    gaStatus: 'GA',
+    primaryTask: 'Store artifacts',
+    description: 'Easily add, update, and remove API and schema artifacts from the store.'
+  },
   '3scale': {
     prettyName: 'Red Hat 3scale API Management',
     gaStatus: 'GA',
