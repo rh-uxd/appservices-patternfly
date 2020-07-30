@@ -189,8 +189,6 @@ export class App extends React.Component<{}, {
           apps={this.state.appList}
           currentApp = {{id: 'first-demo-app', name: 'First Demo App', rootUrl:'localhost:3001', isHttp: true}}
           logo={<Brand src={rhIntegrationLogo} alt="Red Hat Application Services PatternFly Logo"/>}
-          toolbar={PageToolbar}
-          avatar={<Avatar src={imgAvatar} alt="Avatar image" />}
           showNavToggle
         />
       );
@@ -242,7 +240,7 @@ export class App extends React.Component<{}, {
               </TextContent>
             </PageSection>
             <PageSection>
-              <Gallery gutter="md">
+              <Gallery hasGutter>
                 {Array.apply(0, Array(10)).map((x, i) => (
                   <GalleryItem key={i}>
                     <Card>

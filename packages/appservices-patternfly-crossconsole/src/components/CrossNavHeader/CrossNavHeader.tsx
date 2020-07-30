@@ -75,8 +75,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
       logo = null as React.ReactNode,
       logoProps = null as object,
       logoComponent = 'a',
-      toolbar = null as React.ReactNode,
-      avatar = null as React.ReactNode,
+      headerTools = null as React.ReactNode,
       topNav = null as React.ReactNode,
       isNavOpen = true,
       showNavToggle = false,
@@ -130,12 +129,7 @@ export class CrossNavHeader extends React.Component<CrossNavHeaderProps, CrossNa
                 </CrossNavContextSelector> : null
                 }
               {topNav && <div className={css(styles.pageHeaderNav)}>{topNav}</div>}
-              {(toolbar || avatar) && (
-                <div className={css(styles.pageHeaderTools)}>
-                  {toolbar}
-                  {avatar}
-                </div>
-              )}
+              {headerTools}
             </header>
           );
         }}

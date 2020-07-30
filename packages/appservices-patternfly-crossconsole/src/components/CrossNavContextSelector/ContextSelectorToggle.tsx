@@ -19,10 +19,6 @@ export interface ContextSelectorToggleProps {
   onEnter: () => void;
   /** Element which wraps toggle */
   parentRef?: any;
-  /** Forces focus state */
-  isFocused?: boolean;
-  /** Forces hover state */
-  isHovered?: boolean;
   /** Forces active state */
   isActive?: boolean;
 }
@@ -93,9 +89,7 @@ export class ContextSelectorToggle extends React.Component<ContextSelectorToggle
       className,
       toggleText,
       isOpen,
-      isFocused,
       isActive,
-      isHovered,
       onToggle,
       onEnter,
       parentRef,
@@ -109,8 +103,6 @@ export class ContextSelectorToggle extends React.Component<ContextSelectorToggle
         ref={this.toggle}
         className={css(
           styles.contextSelectorToggle,
-          isFocused && styles.modifiers.focus,
-          isHovered && styles.modifiers.hover,
           isActive && styles.modifiers.active,
           className
         )}

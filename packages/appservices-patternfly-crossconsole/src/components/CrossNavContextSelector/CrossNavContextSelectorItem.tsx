@@ -11,9 +11,6 @@ export interface CrossNavContextSelectorItemProps {
   className?: string;
   /** Render Context  Selector item as disabled */
   isDisabled?: boolean;
-  // isSelected?
-  /** Forces display of the hover state of the element */
-  isHovered?: boolean;
   /** Callback for click event */
   onClick: (event: React.MouseEvent) => void;
   /** internal index of the item */
@@ -28,7 +25,6 @@ export class CrossNavContextSelectorItem extends React.Component<CrossNavContext
   static defaultProps: CrossNavContextSelectorItemProps = {
     children: null as React.ReactNode,
     className: '',
-    isHovered: false,
     isDisabled: false,
     onClick: (): any => undefined,
     index: undefined as number,
@@ -45,7 +41,7 @@ export class CrossNavContextSelectorItem extends React.Component<CrossNavContext
 
   render() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { app, className, children, isHovered, onClick, isDisabled, index, sendRef, ...props } = this.props;
+    const { app, className, children, onClick, isDisabled, index, sendRef, ...props } = this.props;
     return (
       <ContextSelectorContext.Consumer>
         {({ onSelect }) => (
@@ -53,8 +49,6 @@ export class CrossNavContextSelectorItem extends React.Component<CrossNavContext
             <button
               className={css(
                 styles.contextSelectorMenuListItem,
-                isDisabled && styles.modifiers.disabled,
-                isHovered && styles.modifiers.hover,
                 className
               )}
               ref={this.ref}
