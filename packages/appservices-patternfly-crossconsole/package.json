@@ -1,6 +1,6 @@
 {
   "name": "@rh-uxd/appservices-patternfly-crossconsole",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Set of common react integration components",
   "repository": {
     "type": "git",
@@ -20,9 +20,9 @@
   "author": "Red Hat",
   "license": "MIT",
   "dependencies": {
-    "@patternfly/react-core": "3.131.4",
-    "@patternfly/react-icons": "3.14.30",
-    "@rh-uxd/appservices-patternfly-core": "1.0.5",
+    "@patternfly/react-core": "4.32.1",
+    "@patternfly/react-icons": "4.5.0",
+    "@rh-uxd/appservices-patternfly-core": "2.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
